@@ -1,6 +1,6 @@
 package com.ityj.base;
 
-public class A003_StringTest {
+public class A004_StringTest {
 
     public static void main(String[] args) {
         String str1 = "Jack";   // 存放在StringPool中：堆中
