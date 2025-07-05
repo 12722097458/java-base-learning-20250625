@@ -2,26 +2,30 @@ package com.ityj.advance.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /*
-*  Runnable 创建线程
+*  ReentrantLock 解决线程安全问题
 * */
 
 @Slf4j
-public class TicketTask implements Runnable {
+public class TicketLockTask implements Runnable {
 
     public static void main(String[] args) {
-        TicketTask task = new TicketTask();
+        TicketLockTask task = new TicketLockTask();
         new Thread(task, "A").start();
         new Thread(task, "B").start();
         new Thread(task, "C").start();
     }
 
     private volatile int tickets = 100;
-    private Object object = new Object();
+    private Lock lock = new ReentrantLock();
     @Override
     public void run() {
         while (true) {
-            synchronized (this) {    // 锁必须唯一  this指的是new 出来的TicketTask对象。 是唯一的TicketTask task = new TicketTask();
+            lock.lock();
+            try {
                 if (tickets > 0) {
                     try {
                         Thread.sleep(100);
@@ -33,6 +37,8 @@ public class TicketTask implements Runnable {
                     log.info("{} 票卖完了，退出程序...", Thread.currentThread().getName());
                     break;
                 }
+            } finally {
+                lock.unlock();
             }
         }
     }

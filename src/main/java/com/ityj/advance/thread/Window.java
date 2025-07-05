@@ -2,6 +2,9 @@ package com.ityj.advance.thread;
 
 import lombok.extern.slf4j.Slf4j;
 
+/*
+*   同步代码块
+* */
 @Slf4j
 public class Window extends Thread {
 
@@ -21,19 +24,22 @@ public class Window extends Thread {
         super(threadName);
     }
 
-
     @Override
     public void run() {
         while (true) {
-            if (tickets > 0) {
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
+            // Window.class 也是对象， 只会加载一次。 所以唯一
+            synchronized (Window.class) {   // 不能用this. 不唯一new了3个Window...
+                if (tickets > 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    log.info("{} 正在卖票：{}", Thread.currentThread().getName(), tickets--);
+                } else {
+                    log.info("票已经卖完。。。。退出程序");
+                    break;
                 }
-                log.info("{} 正在卖票：{}", Thread.currentThread().getName(), tickets--);
-            } else {
-                break;
             }
         }
     }
