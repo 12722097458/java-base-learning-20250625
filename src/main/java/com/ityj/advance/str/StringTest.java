@@ -12,10 +12,23 @@ public class StringTest {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         // public final class String
-        String str = "abc";
-        String s = new String("abc");
-        String abc = new String("abc").intern();
-        System.out.println(str == abc);
+        String str = "abc";   //  常量池
+        String str2 = "abc";   //  常量池
+        String m = "a";   //  常量池
+        String m2 = "bc";   //  常量池
+        String s2 = new String("abc");  //堆
+        String abc = new String("abc").intern();   //  常量池
+        System.out.println(str == abc);   // true
+
+        String m3 = m + m; // 堆
+        System.out.println("m3==str = " + (m3==str));  //false
+
+        String m4 = m + "bc";  // 堆
+        System.out.println("m4==str = " + (m4==str));  //false
+
+        final String mm = "a";  // final是个常量
+        String m5 = mm + "bc";  // 常量池   编译器会直接优化为  String m5 = "abc";
+        System.out.println("m5==str = " + (m5==str));  //true
 
 
         String stt = "09AZaz中国";
@@ -37,5 +50,10 @@ public class StringTest {
         // 正确
         String correct = new String(gbkBytes, "GBK");
         System.out.println("correct = " + correct);
+        
+        
+        
+        
+        
     }
 }
