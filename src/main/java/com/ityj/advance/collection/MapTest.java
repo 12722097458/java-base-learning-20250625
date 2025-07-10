@@ -14,7 +14,7 @@ public class MapTest {
 
     @Test
     public void testHashMap(){
-        Map<String,String> map = new HashMap<>();
+        HashMap<String,String> map = new HashMap<>();
         map.put("A","1"); // newCap=16 newThr = 16 * 0.75 = 12
         map.put("B","2");
         map.put("C","3");
@@ -34,10 +34,13 @@ public class MapTest {
         map.put("P","hhhhh");
         map.put(null,"hhhhh");
         map.put("Q","17");
+
+        HashMap<Object, Object> objectObjectHashMap = new HashMap<>(13);
+        objectObjectHashMap.put(1, 1);
     }
 
 
-    //  重写了HashSet里的   Node<K,V> newNode(int hash, K key, V value, Node<K,V> e) {}
+    //  重写了HashMap里的   Node<K,V> newNode(int hash, K key, V value, Node<K,V> e) {}
     @Test
     public void testLinkedHashMap(){
         LinkedHashMap<String,String> map = new LinkedHashMap<>();
@@ -49,20 +52,20 @@ public class MapTest {
 
     @Test
     public void testTreeMap(){
-        Map<String,String> map = new TreeMap<>();
+        TreeMap<String,String> map = new TreeMap<>();
         map.put("A","1");
     }
 
     @Test
     public void testHashTable(){
-        Map<String,String> map = new Hashtable<>();
+        Hashtable<String,String> map = new Hashtable<>();
         map.put("A","1");
     }
 
 
     @Test
     public void testHashTable2(){
-        Map<String,String> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
         map.put("A","1");
     }
 
