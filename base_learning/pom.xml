@@ -9,14 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ityj</groupId>
-    <artifactId>java-base-learning-20250625</artifactId>
+    <artifactId>base_learning</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>java-base-learning-20250625</name>
-    <description>java-base-learning-20250625</description>
-    <modules>
-        <module>base_learning</module>
-    </modules>
+    <name>base_learning</name>
+    <description>base_learning</description>
+
     <properties>
         <java.version>11</java.version>
     </properties>
