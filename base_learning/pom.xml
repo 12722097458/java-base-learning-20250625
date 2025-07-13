@@ -11,8 +11,12 @@
     <groupId>com.ityj</groupId>
     <artifactId>java-base-learning-20250625</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
     <name>java-base-learning-20250625</name>
     <description>java-base-learning-20250625</description>
+    <modules>
+        <module>base_learning</module>
+    </modules>
     <properties>
         <java.version>11</java.version>
     </properties>
