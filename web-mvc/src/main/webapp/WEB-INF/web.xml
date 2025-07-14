@@ -4,4 +4,23 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <context-param>
+    <param-name>unicode</param-name>
+    <param-value>UTF-8</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>configServlet</servlet-name>
+    <servlet-class>com.ityj.servlet.ConfigServlet</servlet-class>
+    <init-param>
+      <param-name>key1</param-name>
+      <param-value>v1</param-value>
+    </init-param>
+    <load-on-startup>-1</load-on-startup> <!--  -1表示懒加载。可以配置任意正整数，数字越小优先级越高。推荐6以上(tomcat默认配置了一些)，重复也可以  -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>configServlet</servlet-name>
+    <url-pattern>/configServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
