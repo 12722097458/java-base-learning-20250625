@@ -9,8 +9,18 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 // todo
-@WebServlet("/garbled")
+@WebServlet(value = "/garbled", loadOnStartup = 11)
 public class GarbledTextServlet extends HttpServlet {
+
+    public GarbledTextServlet() {
+        System.out.println("GarbledTextServlet  constructor");
+    }
+
+    @Override
+    public void init() throws ServletException {
+        System.out.println("GarbledTextServlet.init()");
+        super.init();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
