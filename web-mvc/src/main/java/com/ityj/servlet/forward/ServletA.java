@@ -23,17 +23,19 @@ import java.io.IOException;
 *   8. 目标资源不可以是外部资源
 *
 * */
-@WebServlet(urlPatterns = "/servletA")
+@WebServlet(urlPatterns = "/tmp/servletA")
 public class ServletA extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("into ServletA.service()...");
 
-        // req.getRequestDispatcher("servletB").forward(req, resp);
-        //req.getRequestDispatcher("index.jsp").forward(req, resp);
+        //req.getRequestDispatcher("../servletB").forward(req, resp);  相对路径
+        req.getRequestDispatcher("/servletB").forward(req, resp);   // 绝对路径
+        //req.getRequestDispatcher("../index.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/index.jsp").forward(req, resp);
         //req.getRequestDispatcher("WEB-INF/css/a.css").forward(req, resp); 可以访问
-        req.getRequestDispatcher("https://www.baidu.com").forward(req, resp); // 消息 请求的资源[/web_mvc/www.baidu.com]不可用
+        //req.getRequestDispatcher("https://www.baidu.com").forward(req, resp); // 消息 请求的资源[/web_mvc/www.baidu.com]不可用
 
 
 

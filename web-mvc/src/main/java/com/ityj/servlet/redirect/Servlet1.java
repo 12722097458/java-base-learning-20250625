@@ -33,7 +33,9 @@ public class Servlet1 extends HttpServlet {
         System.out.println("into Servlet1.service()...");
 
         // sendRedirect 两个作用 1.status code 302  2.  Location: servlet2
-        resp.sendRedirect("servlet2");
+        //resp.sendRedirect("servlet2");
+        //resp.sendRedirect("/servlet2");  // http://localhost:8080/servlet2
+        resp.sendRedirect("/web_mvc/servlet2");  // 重定向 绝对路径需要加contextName
         //resp.sendRedirect("index.jsp");
         //resp.sendRedirect("WEB-INF/css/a.css"); // 不能访问。 相当于想通过浏览器直接访问WEB-INF  拒绝
         //resp.sendRedirect("https://www.baidu.com"); // 可用
