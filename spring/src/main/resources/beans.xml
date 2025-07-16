@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--setter注入-->
+    <bean id="user" class="com.ityj.spring.entity.User">
+        <property name="name" value="Jack"/>
+        <property name="age" value="23"/>
+    </bean>
+
+    <!--构造器注入-->
+    <bean id="user2" class="com.ityj.spring.entity.User" >
+        <constructor-arg name="name" value="Merry"/>
+        <constructor-arg name="age" value="34"/>
+    </bean>
+
+    <!--属性特殊值处理-->
+    <bean id="user3" class="com.ityj.spring.entity.User" >
+        <constructor-arg name="name" value="&lt;&gt;"/>
+        <constructor-arg name="age" value="34"/>
+    </bean>
+
+    <!--属性特殊值处理2-->
+    <bean id="user4" class="com.ityj.spring.entity.User">
+        <property name="name">
+            <value><![CDATA[ a <> b ]]></value>
+        </property>
+        <property name="age" value="23"/>
+    </bean>
+
+    <!--注入对象-->
+    <bean id="account" class="com.ityj.spring.entity.Account">
+        <property name="arr">
+            <array>
+                <value>a</value>
+                <value>b</value>
+                <value>c</value>
+            </array>
+        </property>
+    </bean>
+    <bean id="user5" class="com.ityj.spring.entity.User">
+        <property name="name" value="Lucy"/>
+        <property name="age" value="23"/>
+        <property name="account" ref="account"/>
+    </bean>
+
+
+
+    <bean id="account2" class="com.ityj.spring.entity.Account">
+        <property name="arr">
+            <array>
+                <value>a</value>
+                <value>b</value>
+                <value>c</value>
+            </array>
+        </property>
+
+        <property name="list">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+
+        <property name="map">
+            <map>
+                <entry key="k1" value="1"/>
+                <entry value="2" key="k2"/>
+            </map>
+        </property>
+    </bean>
+    
+    
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialSize" value="${jdbc.initialSize}"/>
+    </bean>
+
+
+    <!--自动装配注入对象-->
+    <bean id="user_auto" class="com.ityj.spring.entity.User" autowire="byName">
+        <property name="name" value="Lucy"/>
+        <property name="age" value="23"/>
+    </bean>
+
+</beans>
