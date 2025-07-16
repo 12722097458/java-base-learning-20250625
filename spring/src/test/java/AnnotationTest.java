@@ -1,6 +1,8 @@
 import com.ityj.spring.annotation.bean.Student;
+import com.ityj.spring.annotation.config.MyConfiguration;
 import com.ityj.spring.annotation.controller.UserController;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AnnotationTest {
@@ -27,5 +29,14 @@ public class AnnotationTest {
         com.ityj.spring.resource.controller.UserController userController = context.getBean("resourceUserController", com.ityj.spring.resource.controller.UserController.class);
         userController.add();
     }
+
+
+    @Test
+    public void testFullAnnotation() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MyConfiguration.class);
+        UserController userController = context.getBean("userController", UserController.class);
+        userController.add();
+    }
+
 
 }
