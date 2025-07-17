@@ -17,7 +17,7 @@ import java.util.Map;
 public class SpringConfig {
 
     @Bean
-    public DataSource getDataSource() throws Exception {
+    public DataSource getDataSource() throws Exception {  // Creating shared instance of singleton bean 'getDataSource'
         Map<String, String> map = Map.of("driverClassName", "com.mysql.cj.jdbc.Driver",
                 "url", "jdbc:mysql://192.168.137.110/mydb?serverTimezone=EST",
                 "username", "root",
@@ -27,7 +27,7 @@ public class SpringConfig {
     }
 
     @Bean
-    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {
+    public JdbcTemplate getJdbcTemplate(DataSource dataSource) {   // 会从容器中通过类型找DataSource  Autowiring by type from bean name 'getJdbcTemplate' via factory method to bean named 'getDataSource'
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         jdbcTemplate.setDataSource(dataSource);
         return jdbcTemplate;
