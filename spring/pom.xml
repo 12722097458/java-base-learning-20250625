@@ -59,6 +59,24 @@
       <version>1.2.8</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>5.3.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>4.3.19.RELEASE</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>spring</finalName>
