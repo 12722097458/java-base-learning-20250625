@@ -9,11 +9,18 @@ public class TestAop {
     private static final Logger log = LoggerFactory.getLogger(TestAop.class);
 
     @Test
-    public void testBefore() {
+    public void testAop_anno() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-aop.xml");
         Calculator calculator = context.getBean("calculatorImpl", Calculator.class);
         int add = calculator.add(1, 2);
         System.out.println("add = " + add);
     }
 
+    @Test
+    public void testAop_xml() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-aop-xml.xml");
+        Calculator calculator = context.getBean("calculatorImpl", Calculator.class);
+        int add = calculator.add(1, 2);
+        System.out.println("add = " + add);
+    }
 }

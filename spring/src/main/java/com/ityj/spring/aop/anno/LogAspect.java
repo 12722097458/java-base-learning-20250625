@@ -9,25 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class LogAspect {
 
-    @Before(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
-    public void before(JoinPoint joinPoint) {
-        System.out.println("@Before前置通知...");
-    }
 
-    @AfterReturning(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))", returning = "res")
-    public void afterReturning(JoinPoint joinPoint, Object res) {
-        System.out.println("@AfterReturning 后置通知... " + res);
-    }
-
-    @AfterThrowing(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))", throwing = "ex")
-    public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
-        System.out.println("@AfterThrowing 异常通知..." + ex);
-    }
-
-    @After(value = "pointcut()")
-    public void after(JoinPoint joinPoint) {
-        System.out.println("@After后置通知...");
-    }
 
     @Around(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -44,6 +26,28 @@ public class LogAspect {
             System.out.println("@Around环绕通知 后...");
         }
         return proceed;
+    }
+
+
+    @Before(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
+    public void before(JoinPoint joinPoint) {
+        System.out.println("@Before前置通知...");
+    }
+
+    @After(value = "pointcut()")
+    public void after(JoinPoint joinPoint) {
+        System.out.println("@After后置通知...");
+    }
+
+
+    @AfterReturning(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))", returning = "res")
+    public void afterReturning(JoinPoint joinPoint, Object res) {
+        System.out.println("@AfterReturning 后置通知... " + res);
+    }
+
+    @AfterThrowing(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))", throwing = "ex")
+    public void afterThrowing(JoinPoint joinPoint, Throwable ex) {
+        System.out.println("@AfterThrowing 异常通知..." + ex);
     }
 
     @Pointcut("execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(..))")
