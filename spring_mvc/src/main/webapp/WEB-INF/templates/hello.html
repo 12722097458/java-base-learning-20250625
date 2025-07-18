@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hello</title>
 </head>
 <body>
 Hello
+
+money...<b th:text="${money}"></b>  <br/>
+money from mv...<b th:text="${money_mv}"></b>  <br/>
+money from model...<b th:text="${money_model}"></b>  <br/>
+money from map...<b th:text="${money_map}"></b>  <br/>
+money from modelMap...<b th:text="${money_modelMap}"></b>  <br/>
+msg from sessionScope...<b th:text="${session.sessionScope}"></b>  <br/>
+msg from ServletContextScope...<b th:text="${application.testServletContextScope}"></b>  <br/>
 </body>
 </html>
