@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/lifeCycleServlet", loadOnStartup = 10)
+@WebServlet(urlPatterns = "/lifeCycleServlet", loadOnStartup = 22)
 public class LifeCycleServlet extends HttpServlet {
 
     public LifeCycleServlet() {
-        System.out.println("ConfigServlet constructor");
+        System.out.println("LifeCycleServlet constructor");
     }
 
     @Override
     public void init() throws ServletException {
-        System.out.println("ConfigServlet init");
+        System.out.println("LifeCycleServlet init");
     }
 
     @Override
@@ -30,6 +30,6 @@ public class LifeCycleServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        System.out.println("ConfigServlet destroy");
+        System.out.println("LifeCycleServlet destroy");
     }
 }
