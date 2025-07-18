@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
@@ -7,6 +7,18 @@
 <body>
 
 <h1>Index</h1>
+
+<a th:href="@{/param/testServlet?username='Jack'}">测试ServletApi获取参数</a>
+
+<br/>
+<br/>
+<form th:action="@{/param/testParam}" th:method="post">
+    name: <input type="text" name="username">
+    <br/>
+    hobby:<input type="checkbox" name = "hobby" value="1">唱
+    <input type="checkbox" name = "hobby" value="2">跳
+    <input type="submit" value="提交">
+</form>
 
 </body>
 </html>
