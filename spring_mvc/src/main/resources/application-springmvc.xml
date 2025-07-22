@@ -37,5 +37,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <property name="templateEngine" ref="templateEngine"/>
     </bean>
 
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
 
 </beans>

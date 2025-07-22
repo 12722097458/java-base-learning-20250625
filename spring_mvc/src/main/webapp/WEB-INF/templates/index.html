@@ -29,6 +29,19 @@
     <input type="submit">
 </form>
 
+<br/>
+测试RequestBody：
+<form th:action="@{/testRequestBody}" th:method="post">
+    id: <input type="text" name="id"/> <br/>
+    newName: <input type="text" name="newName"/> <br/>
+    <input type="submit">
+</form>
+
+测试 文件上传：
+<form th:action="@{/testUpload}" method="post" enctype="multipart/form-data">
+    请选择文件: <input type="file" name="fileUpload"/> <br/>
+    <input type="submit" value="上传">
+</form>
 
 </body>
 </html>
