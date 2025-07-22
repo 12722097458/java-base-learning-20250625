@@ -20,5 +20,15 @@
     <input type="submit" value="提交">
 </form>
 
+<br/>
+提交PUT请求：
+<form th:action="@{/user}" th:method="post">
+    <input type="hidden" name="_method" value="PUT">
+    id: <input type="text" name="id"/> <br/>
+    newName: <input type="text" name="newName"/> <br/>
+    <input type="submit">
+</form>
+
+
 </body>
 </html>
