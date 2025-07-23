@@ -10,6 +10,12 @@
     </properties>
 
 
+    <!--下划线映射为驼峰规则-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+
     <!--5、映射实体类对象-->
     <typeAliases>
         <!--默认映射com.ityj.entity目录下的所有实体类。-->
@@ -41,5 +47,8 @@
         -->
         <package name="com.ityj.mybatis.mapper"/>
     </mappers>
+
+
+
 
 </configuration>

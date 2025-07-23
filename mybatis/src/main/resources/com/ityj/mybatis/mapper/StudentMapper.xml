@@ -9,8 +9,41 @@
         insert into student (name, age, gender, birthday) values (#{name}, #{age}, #{gender}, #{birthday})
     </insert>
 
-    <select id="queryAllStudent" resultType="com.ityj.mybatis.entity.Student">
+    <select id="queryAllStudent" resultType="STudent" >
         select * from student
     </select>
+
+    <select id="queryByName" resultType="student">
+        select * from student where name = #{name} and age = #{age}
+    </select>
+
+    <select id="queryLikeName" resultMap="studentNameMap">
+        select * from student where name like "%"#{name}"%"
+    </select>
+
+
+    <resultMap id="studentNameMap" type="student">
+        <!--id 主键映射-->
+        <id property="id" column="id"></id>
+        <!--result 普通字段-->
+        <result property="name" column="name"></result>
+    </resultMap>
+
+
+
+    <select id="queryByIDList" resultType="student">
+        select * from student
+        <if test="ids != null">
+            <where>
+                <foreach item="id" collection="ids"
+                         open="ID in (" separator="," close=")">
+                    #{id}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+
+    <cache/>
 
 </mapper>
