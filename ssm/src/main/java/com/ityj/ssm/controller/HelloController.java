@@ -14,6 +14,7 @@ public class HelloController {
 
     @GetMapping("/ping")
     public String ping() {
+        System.out.println("HelloController.ping()......");
         return "pong";
     }
 
