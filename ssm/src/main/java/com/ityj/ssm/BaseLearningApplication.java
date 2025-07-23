@@ -11,7 +11,7 @@ public class BaseLearningApplication {
         ConfigurableApplicationContext ac = SpringApplication.run(BaseLearningApplication.class, args);
         for (String beanDefinitionName : ac.getBeanDefinitionNames()) {
 
-            //System.out.println("beanDefinitionName = " + beanDefinitionName);
+            System.out.println("beanDefinitionName = " + beanDefinitionName);
         }
     }
 
