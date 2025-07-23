@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--1. 引入外部的配置-->
+    <properties resource="jdbc.properties">
+        <!--自定义属性，优先级低于db.properties-->
+    </properties>
+
+
+    <!--5、映射实体类对象-->
+    <typeAliases>
+        <!--默认映射com.ityj.entity目录下的所有实体类。-->
+        <!--mybatis的xml中对应的配置文件大小写都可以。没有限制-->
+        <package name="com.ityj.mybatis.entity"/>
+    </typeAliases>
+
+    <!--2. 配置数据库资源-->
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--3. 映射mapper-->
+    <mappers>
+        <!--使用mapper接口类路径-->
+        <!--注意：
+                1. 此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。
+                2. 而如果放入mapper.xml 如果放入java接口同目录下，编译时又不会进行编译，需要手动在pom.xml文件中配置相关的路径指定编译。否则会报错
+                3. xml和接口名称要保持一致，否则会报错
+                org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.ityj.mybatis.mapper.AccountMapper.getAccountById
+        -->
+        <package name="com.ityj.mybatis.mapper"/>
+    </mappers>
+
+</configuration>
