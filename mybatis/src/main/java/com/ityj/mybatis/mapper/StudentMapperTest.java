@@ -105,5 +105,21 @@ public class StudentMapperTest {
         System.out.println("students3 = " + students3);
     }
 
+    @Test
+    public void queryByProperty() throws Exception {
+        File file = ResourceUtils.getFile("classpath:mybatis-config.xml");
+        FileInputStream fileInputStream = new FileInputStream(file);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(fileInputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+        Student student = new Student();
+        /*student.setId(12);
+        student.setName("Jak");
+        student.setAge(133);*/
+        List<Student> students = studentMapper.queryByProperty(student);
+        System.out.println("students = " + students);
+    }
+
+
 
 }

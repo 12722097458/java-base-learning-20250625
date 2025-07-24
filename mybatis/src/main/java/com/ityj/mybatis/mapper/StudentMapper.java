@@ -14,4 +14,7 @@ public interface StudentMapper {
     List<Student> queryByName(@Param("name") String name, @Param("age") int age);
     List<Student> queryLikeName(@Param("name") String name);
     List<Student> queryByIDList(@Param("ids") List<Integer> ids);
+
+    List<Student> queryByProperty(@Param("student") Student student);
+
 }

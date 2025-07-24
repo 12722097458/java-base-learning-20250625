@@ -29,8 +29,6 @@
         <result property="name" column="name"></result>
     </resultMap>
 
-
-
     <select id="queryByIDList" resultType="student">
         select * from student
         <if test="ids != null">
@@ -42,6 +40,29 @@
             </where>
         </if>
     </select>
+
+    <select id="queryByProperty" resultType="student">
+        select * from student
+        <where>
+            <if test="student.id != 0">
+               and id = #{student.id}
+            </if>
+
+            <if test="student.name != null">
+                and name = #{student.name}
+            </if>
+
+            <if test="student.age != 0">
+                and  age = #{student.age}
+            </if>
+
+        </where>
+
+
+    </select>
+
+
+
 
 
     <cache/>

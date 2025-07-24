@@ -3,8 +3,11 @@ package com.ityj.ssm;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
+@EnableTransactionManagement // 开启事务管理
 public class BaseLearningApplication {
 
     public static void main(String[] args) {
