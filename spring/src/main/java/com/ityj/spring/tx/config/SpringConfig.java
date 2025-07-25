@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Map;
 
-@Configuration
+/*@Configuration
 @ComponentScan(basePackages = "com.ityj.spring.tx")
-@EnableTransactionManagement
+@EnableTransactionManagement*/
 public class SpringConfig {
 
     @Bean

@@ -13,7 +13,8 @@ public class StudentControllerTest {
 
     @Test
     public void testTx() {
-        studentController.addAndUpdate();
+        studentController.addAndUpdate();  // 			List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
+
     }
 
 
