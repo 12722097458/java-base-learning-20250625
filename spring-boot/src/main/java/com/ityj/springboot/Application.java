@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@Import(SpaceAutoConfiguration.class)
-@EnableSpace
+//@EnableSpace
 public class Application {
 
     public static void main(String[] args) {
