@@ -53,11 +53,11 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.ityj.space</groupId>
             <artifactId>space-spring-boot-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 

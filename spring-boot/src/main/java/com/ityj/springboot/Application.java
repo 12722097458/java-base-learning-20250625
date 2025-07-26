@@ -1,6 +1,5 @@
 package com.ityj.springboot;
 
-import com.ityj.space.anno.EnableSpace;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
