@@ -7,6 +7,10 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
   application:
     name: spring-boot
+  data:
+    redis:
+      host: 192.168.137.110
+      port: 6379
 
 space:
   name: uu

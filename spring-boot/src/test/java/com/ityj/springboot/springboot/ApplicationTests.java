@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 
 import javax.sql.DataSource;
 
@@ -14,6 +16,10 @@ class ApplicationTests {
 
     @Autowired
     private DataSource dataSource;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
 
     @Test
     void testDataSource() {
@@ -28,6 +34,17 @@ class ApplicationTests {
         log.debug("debug....");
         log.info("info....");
         log.warn("warn....");
+    }
+
+    @Test
+    void testRedis() {
+        ValueOperations<String, String> stringStringValueOperations = stringRedisTemplate.opsForValue();
+        stringStringValueOperations.set("testKey", "Jack");
+
+
+        String res = stringStringValueOperations.get("testKey");
+
+        log.info("complete: " + res);
     }
 
 }
