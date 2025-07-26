@@ -11,8 +11,12 @@ spring:
     redis:
       host: 192.168.137.110
       port: 6379
+  mvc:
+    contentnegotiation:
+      favor-parameter: true
 #  mvc:
 #    static-path-pattern: /pages/**
+
 
 space:
   name: uu
