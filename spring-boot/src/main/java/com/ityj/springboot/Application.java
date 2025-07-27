@@ -10,11 +10,13 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class Application {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
-        for (String beanDefinitionName : run.getBeanDefinitionNames()) {
+        ConfigurableApplicationContext ioc = SpringApplication.run(Application.class, args);
+        for (String beanDefinitionName : ioc.getBeanDefinitionNames()) {
 
             System.out.println("beanDefinitionName = " + beanDefinitionName);
         }
+        Object error = ioc.getBean("error");  // class org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration$StaticView
+        System.out.println(error.getClass());
     }
 
 }
