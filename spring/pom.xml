@@ -24,14 +24,14 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>5.3.6</version>
+      <version>6.2.7</version>
     </dependency>
 
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>5.3.6</version>
+      <version>6.2.7</version>
     </dependency>
 
     <!-- 使用slf4j 作为日志门面 -->
@@ -76,7 +76,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>5.3.6</version>
+      <version>6.2.7</version>
     </dependency>
 
     <dependency>
