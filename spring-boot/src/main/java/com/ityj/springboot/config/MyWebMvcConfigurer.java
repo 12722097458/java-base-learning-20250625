@@ -25,11 +25,9 @@ public class MyWebMvcConfigurer {
                         .setCachePeriod(12);
             }
 
+            @Override
             public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-
-                //converters.add(new MyYmlHttpMessageConverter());
-
-
+                converters.add(new MyYmlHttpMessageConverter());
             }
 
         };
