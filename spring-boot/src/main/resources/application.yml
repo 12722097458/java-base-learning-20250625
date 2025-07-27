@@ -14,9 +14,10 @@ spring:
   mvc:
     contentnegotiation:
       favor-parameter: true
+      media-types:
+        yml: application/yml
 #  mvc:
 #    static-path-pattern: /pages/**
-
 
 space:
   name: uu

@@ -1,5 +1,10 @@
 package com.ityj.springboot.springboot;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
+import com.ityj.springboot.entity.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +49,21 @@ class ApplicationTests {
 
         String res = stringStringValueOperations.get("testKey");
 
+        log.info("complete: " + res);
+    }
+
+    @Test
+    void testYmlFormat() throws JsonProcessingException {
+        Student student = new Student();
+        student.setAge(33);
+        student.setHeight(182);
+        student.setName("Jack2");
+        student.setGender("男");
+
+        YAMLFactory yamlFactory = new YAMLFactory().disable(YAMLGenerator.Feature.WRITE_DOC_START_MARKER);
+
+        ObjectMapper objectMapper = new ObjectMapper(yamlFactory);
+        String res = objectMapper.writeValueAsString(student);
         log.info("complete: " + res);
     }
 
