@@ -1,4 +1,4 @@
-package com.ityj.springboot.springboot;
+package com.ityj.springboot;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

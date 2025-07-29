@@ -16,8 +16,16 @@ spring:
       favor-parameter: true
       media-types:
         yml: application/yml
+
+
+
 #  mvc:
 #    static-path-pattern: /pages/**
 
 space:
   name: uu
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+
+  configuration:
+    map-underscore-to-camel-case: true

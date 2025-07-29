@@ -1,9 +1,11 @@
 package com.ityj.springboot;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+@MapperScan(basePackages = "com.ityj.springboot.mapper") // 导入包下的所有mapper
 @SpringBootApplication
 //@Import(SpaceAutoConfiguration.class)
 //@EnableSpace
