@@ -15,7 +15,8 @@ public class RpcController {
 
     @GetMapping("/webClient/{area}")
     public Mono<String> webClient(@PathVariable("area") String area) {
-        Mono<String> mono = weatherService.recentWeather(area);
+        //Mono<String> mono = weatherService.recentWeather(area);
+        Mono<String> mono = weatherService.getWeather(area);
         return mono;
     }
 
