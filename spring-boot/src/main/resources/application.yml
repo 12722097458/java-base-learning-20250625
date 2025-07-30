@@ -16,6 +16,8 @@ spring:
       favor-parameter: true
       media-types:
         yml: application/yml
+  kafka:
+    bootstrap-servers: 192.168.137.110:9092
 
 
 
