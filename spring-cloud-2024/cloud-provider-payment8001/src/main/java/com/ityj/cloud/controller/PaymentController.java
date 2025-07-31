@@ -30,11 +30,6 @@ public class PaymentController {
         return result;
     }
 
-    @GetMapping("/pay/getAllData")
-    public List<Pay> queryAllData() {
-        return payService.queryAll();
-    }
-
     @GetMapping("/pay/get/{id}")
     public PayDTO queryById(@PathVariable("id") Integer id) {
         Pay pay = payService.queryById(id);

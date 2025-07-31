@@ -1,11 +1,14 @@
 package com.ityj.cloud.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -21,4 +24,9 @@ public class PayDTO implements Serializable
     private Integer userId;
     //交易金额
     private BigDecimal amount;
+
+    @JsonFormat(pattern = "yyyyMMdd HH:mm:ss", timezone = "GMT+8")
+    private Date createTime;
+    @JsonFormat(pattern = "yyyyMMdd HH:mm:ss", timezone = "GMT+8")
+    private Date updateTime;
 }
