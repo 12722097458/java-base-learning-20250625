@@ -46,6 +46,7 @@ public class PaymentController {
     @PostMapping(value = "/pay/add")
     public ResultData<String> addPay(@RequestBody Pay pay){
         int i = payService.insert(pay);
+        log.info("插入成功 : {}", i);
         return ResultData.success("成功插入记录，返回值："+i);
     }
     @DeleteMapping(value = "/pay/del/{id}")

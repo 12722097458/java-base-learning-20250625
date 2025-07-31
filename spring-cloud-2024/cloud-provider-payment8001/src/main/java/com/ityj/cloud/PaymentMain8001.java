@@ -6,9 +6,9 @@ import tk.mybatis.spring.annotation.MapperScan;  // 注意 package
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.ityj.cloud.mapper")
-public class Payment8001Main {
+public class PaymentMain8001 {
 
     public static void main(String[] args) {
-        SpringApplication.run(Payment8001Main.class, args);
+        SpringApplication.run(PaymentMain8001.class, args);
     }
 }
