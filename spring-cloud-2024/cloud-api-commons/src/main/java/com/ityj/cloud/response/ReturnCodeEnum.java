@@ -1,4 +1,4 @@
-package com.ityj.cloud.utils;
+package com.ityj.cloud.response;
 
 import lombok.Getter;
 

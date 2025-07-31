@@ -1,7 +1,7 @@
 package com.ityj.cloud.controller;
 
 import com.ityj.cloud.entities.PayDTO;
-import com.ityj.cloud.utils.ResultData;
+import com.ityj.cloud.response.ResultData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

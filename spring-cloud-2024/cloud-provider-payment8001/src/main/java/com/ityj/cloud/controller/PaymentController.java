@@ -3,7 +3,7 @@ package com.ityj.cloud.controller;
 import com.ityj.cloud.entities.Pay;
 import com.ityj.cloud.entities.PayDTO;
 import com.ityj.cloud.service.PayService;
-import com.ityj.cloud.utils.ResultData;
+import com.ityj.cloud.response.ResultData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.ityj.cloud.advice;
+package com.ityj.cloud.exception;
 
-import com.ityj.cloud.utils.ResultData;
-import com.ityj.cloud.utils.ReturnCodeEnum;
+import com.ityj.cloud.response.ResultData;
+import com.ityj.cloud.response.ReturnCodeEnum;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
