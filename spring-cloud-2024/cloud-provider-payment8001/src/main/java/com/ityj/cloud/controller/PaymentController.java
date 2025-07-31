@@ -33,6 +33,9 @@ public class PaymentController {
 
     @GetMapping("/pay/get/{id}")
     public ResultData<PayDTO> queryById(@PathVariable("id") Integer id) {
+        if (id < 0) {
+            throw new RuntimeException("id should greater than 0");
+        }
         Pay pay = payService.queryById(id);
         PayDTO payDTO = new PayDTO();
         BeanUtils.copyProperties(pay, payDTO);
