@@ -13,6 +13,12 @@
 
     <dependencies>
 
+        <!--SpringCloud consul discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.ityj.cloud</groupId>
             <artifactId>cloud-api-commons</artifactId>
