@@ -1,5 +1,6 @@
 package com.ityj.cloud.controller;
 
+import cn.hutool.core.thread.ThreadUtil;
 import com.ityj.cloud.entities.Pay;
 import com.ityj.cloud.entities.PayDTO;
 import com.ityj.cloud.service.PayService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -41,6 +43,10 @@ public class PaymentController {
         if (id < 0) {
             throw new RuntimeException("id should greater than 0");
         }
+
+        // 休眠62秒
+        ThreadUtil.sleep(62, TimeUnit.SECONDS);
+
         Pay pay = payService.queryById(id);
         PayDTO payDTO = new PayDTO();
         BeanUtils.copyProperties(pay, payDTO);
