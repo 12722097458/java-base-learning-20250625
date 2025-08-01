@@ -7,6 +7,7 @@ import com.ityj.cloud.response.ResultData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ public class PaymentController {
 
     @Autowired
     private PayService payService;
+
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @GetMapping("/pay/getAll")
     public ResultData<List<PayDTO>> queryAll() {
@@ -59,6 +64,11 @@ public class PaymentController {
         BeanUtils.copyProperties(payDTO, pay);
         int i = payService.updateById(pay);
         return ResultData.success("成功修改记录，返回值：" + i);
+    }
+
+    @GetMapping(value = "/pay/consul/config")
+    public ResultData<String> listConfig(@Value("${consulConfig.value}") String consulConfigName){
+        return ResultData.success("configName from cunsul: " + consulConfigName + ", port:" + serverPort);
     }
 
 
