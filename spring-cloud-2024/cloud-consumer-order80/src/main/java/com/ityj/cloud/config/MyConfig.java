@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class MyConfig {
 
     @Bean
-    @LoadBalanced
+    @LoadBalanced // 开启默认的负载均衡  - 本地端    nginx是服务器端
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }

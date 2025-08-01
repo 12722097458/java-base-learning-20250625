@@ -71,7 +71,10 @@ public class PaymentController {
         return ResultData.success("configName from cunsul: " + consulConfigName + ", port:" + serverPort);
     }
 
-
+    @GetMapping(value = "/pay/info")
+    public ResultData<String> info(){
+        return ResultData.success("port: " + serverPort);
+    }
 
 
 }

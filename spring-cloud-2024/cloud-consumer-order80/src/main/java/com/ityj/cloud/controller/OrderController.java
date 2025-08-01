@@ -16,7 +16,7 @@ public class OrderController {
 
 
     //private static final String PAYMENT_BASE_URL = "http://localhost:8001";
-    private static final String PAYMENT_BASE_URL = "http://cloud-payment-service"; //服务注册中心上的微服务名称
+    private static final String PAYMENT_BASE_URL = "http://cloud-payment-service"; //服务注册中心上的微服务名称.
 
     @Autowired
     private RestTemplate restTemplate;
@@ -26,9 +26,14 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_BASE_URL + "/pay/add", payDTO, ResultData.class);
     }
 
-        @GetMapping("/consumer/pay/get/{id}")
+    @GetMapping("/consumer/pay/get/{id}")
     public ResultData getPayInfo(@PathVariable("id") int id) {
         return restTemplate.getForObject(PAYMENT_BASE_URL + "/pay/get/" + id, ResultData.class);
+    }
+
+    @GetMapping(value = "/consumer/pay/info")
+    public ResultData<String> info(){
+        return restTemplate.getForObject(PAYMENT_BASE_URL + "/pay/info", ResultData.class);
     }
 
 }
