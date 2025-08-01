@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
+
 /**
  * @auther zzyy
  * @create 2023-11-13 14:54
@@ -46,6 +49,29 @@ public class OrderCircuitController {
     public String myBulkheadFallback(Throwable t) {
         return "myBulkheadFallback，隔板超出最大数量限制，系统繁忙，请稍后再试-----/(ㄒoㄒ)/~~";
     }
+
+
+    /**
+     * (船的)舱壁,隔离,THREADPOOL
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/feign/pay/bulkhead_pool/{id}")
+    @Bulkhead(name = "cloud-payment-service",fallbackMethod = "myBulkheadPoolFallback",type = Bulkhead.Type.THREADPOOL)
+    public CompletableFuture<String> myBulkheadTHREADPOOL(@PathVariable("id") Integer id)
+    {
+        System.out.println(Thread.currentThread().getName()+"\t"+"enter the method!!!");
+        try { TimeUnit.SECONDS.sleep(3); } catch (InterruptedException e) { e.printStackTrace(); }
+        System.out.println(Thread.currentThread().getName()+"\t"+"exist the method!!!");
+
+        return CompletableFuture.supplyAsync(() -> payFeignApi.myBulkhead(id) + "\t" + " Bulkhead.Type.THREADPOOL");
+    }
+    public CompletableFuture<String> myBulkheadPoolFallback(Integer id,Throwable t)
+    {
+        return CompletableFuture.supplyAsync(() -> "Bulkhead.Type.THREADPOOL，系统繁忙，请稍后再试-----/(ㄒoㄒ)/~~");
+    }
+
+
 
 
 
