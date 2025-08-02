@@ -1,0 +1,19 @@
+mysql:
+jdbc.driverClass=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://192.168.137.110:3306/cloud_2024?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+jdbc.user=root
+jdbc.password=root
+
+redis:
+host: 192.168.137.110
+port: 6379
+
+kafka:
+bootstrap-servers: 192.168.137.110:9092
+
+Consul:
+http://localhost:8500/
+
+Zipkin:
+http://localhost:9411/
+java -jar zipkin-server-3.0.0-rc0-exec.jar
