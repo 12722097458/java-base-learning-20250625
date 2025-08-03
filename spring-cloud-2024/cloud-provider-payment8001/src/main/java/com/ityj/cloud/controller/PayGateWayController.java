@@ -5,12 +5,17 @@ import com.ityj.cloud.entities.Pay;
 import com.ityj.cloud.response.ResultData;
 import com.ityj.cloud.service.PayService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Enumeration;
+
 @RestController
+@Slf4j
 public class PayGateWayController
 {
     @Resource
@@ -27,8 +32,13 @@ public class PayGateWayController
     }
 
     @GetMapping(value = "/pay/gateway/info")
-    public ResultData<String> getGatewayInfo()
-    {
+    public ResultData<String> getGatewayInfo(HttpServletRequest request) {
+        log.info("Input parameter gender : {}", request.getParameter("gender"));
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            log.info("request Header {} : {}", headerName, request.getHeader(headerName));
+        }
         return ResultData.success("port is : "+ serverPort +", gateway info test："+ IdUtil.simpleUUID());
     }
 }

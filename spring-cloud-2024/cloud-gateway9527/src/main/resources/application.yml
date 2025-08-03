@@ -36,3 +36,8 @@ spring:
             - After=2025-08-03T07:28:21.328677+08:00[Asia/Shanghai]   # 在这个日期之后生效  Before/Between 同理
             - Cookie=myCookie,123   # 需要带着cookie   -- myCookie=123才生效
             - UserAccess=diamond
+          filters:
+            - AddRequestHeader=req_header_test, blue
+            - AddRequestParameter=gender, male
+#            - RedirectTo=302, https://www.bilibili.com/ 重定向到bilibili
+            - SetResponseHeader=resp_header_test, red
