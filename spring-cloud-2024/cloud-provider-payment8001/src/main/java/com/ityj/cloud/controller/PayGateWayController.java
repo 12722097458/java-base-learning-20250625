@@ -1,5 +1,6 @@
 package com.ityj.cloud.controller;
 
+import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.IdUtil;
 import com.ityj.cloud.entities.Pay;
 import com.ityj.cloud.response.ResultData;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Enumeration;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -34,6 +36,7 @@ public class PayGateWayController
     @GetMapping(value = "/pay/gateway/info")
     public ResultData<String> getGatewayInfo(HttpServletRequest request) {
         log.info("Input parameter gender : {}", request.getParameter("gender"));
+        ThreadUtil.sleep(3, TimeUnit.SECONDS);
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String headerName = headerNames.nextElement();
