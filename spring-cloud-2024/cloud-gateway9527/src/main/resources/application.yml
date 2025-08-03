@@ -43,4 +43,5 @@ spring:
             - SetResponseHeader=resp_header_test, red
             - PrefixPath=/pay
             - SetPath=/pay/gateway/{segment}
+            - Username=
 
