@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(value = "cloud-payment-service")
+//@FeignClient(value = "cloud-payment-service")
+@FeignClient(value = "cloud-gateway")  // 通过网关来调用payment API
 public interface PayFeignApi {
 
     @GetMapping("/pay/getAll")

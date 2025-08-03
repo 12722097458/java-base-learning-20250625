@@ -44,4 +44,7 @@ spring:
             - PrefixPath=/pay
             - SetPath=/pay/gateway/{segment}
             - Username=
-
+        - id: pay_routh3
+          uri: lb://cloud-payment-service
+          predicates:
+            - Path=/pay/getAll/**

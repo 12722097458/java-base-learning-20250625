@@ -27,6 +27,11 @@ public class OrderController {
         return payFeignApi.queryById(id);
     }
 
+    @GetMapping("/feign/pay/getAll")
+    public ResultData getAll() {
+        return payFeignApi.queryAll();
+    }
+
     @GetMapping(value = "/feign/pay/info")
     public ResultData<String> info(){
         return payFeignApi.info();
