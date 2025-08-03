@@ -33,3 +33,5 @@ spring:
           uri: lb://cloud-payment-service                #application  name
           predicates:
             - Path=/pay/gateway/info/**              # 断言，路径相匹配的进行路由
+            - After=2025-08-03T07:28:21.328677+08:00[Asia/Shanghai]   # 在这个日期之后生效  Before/Between 同理
+            - Cookie=myCookie,123   # 需要带着cookie   -- myCookie=123才生效
