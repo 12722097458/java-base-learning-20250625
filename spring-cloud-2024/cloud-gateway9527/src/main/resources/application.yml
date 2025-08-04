@@ -47,4 +47,4 @@ spring:
         - id: pay_routh3
           uri: lb://cloud-payment-service
           predicates:
-            - Path=/pay/getAll/**
+            - Path=/*/**
