@@ -73,8 +73,10 @@ public class PaymentController {
         return ResultData.success("成功修改记录，返回值：" + i);
     }
 
+    @Value("${consulConfig.value}")
+    String consulConfigName;
     @GetMapping(value = "/pay/consul/config")
-    public ResultData<String> listConfig(@Value("${consulConfig.value}") String consulConfigName){
+    public ResultData<String> listConfig(){
         return ResultData.success("configName from cunsul: " + consulConfigName + ", port:" + serverPort);
     }
 
