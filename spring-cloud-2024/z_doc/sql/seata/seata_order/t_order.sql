@@ -1,3 +1,7 @@
+CREATE DATABASE seata_order;
+
+USE seata_order;
+
 create table t_order
 (
     id         bigint auto_increment

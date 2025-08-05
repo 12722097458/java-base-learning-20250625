@@ -46,3 +46,7 @@ Sentinel:
 启动：D:\2025\java\software\SpringCloud\sentinel-dashboard-1.8.6>java -jar sentinel-dashboard-1.8.6.jar
 访问：http://localhost:8080/#/dashboard       sentinel/sentinel
 后台默认端口8719
+
+seata:
+启动： D:\2025\java\software\SpringCloud\seata-server-2.0.0\bin\seata-server.bat
+访问： http://localhost:7091/#/transaction/list  seata/seata

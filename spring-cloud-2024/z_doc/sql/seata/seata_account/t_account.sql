@@ -1,3 +1,6 @@
+create database seata_account;
+use seata_account;
+
 create table t_account
 (
     id      bigint auto_increment

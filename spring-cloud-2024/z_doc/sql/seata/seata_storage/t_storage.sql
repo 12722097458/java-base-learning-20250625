@@ -1,3 +1,7 @@
+CREATE DATABASE seata_storage;
+
+USE seata_storage;
+
 create table t_storage
 (
     id         bigint auto_increment
