@@ -23,6 +23,9 @@
         <module>cloudalibaba-config-nacos-client3377</module>
         <module>cloudalibaba-sentinel-service8401</module>
         <module>cloudalibaba-sentinel-gateway9528</module>
+        <module>seata-order-service2001</module>
+        <module>seata-storage-service2002</module>
+        <module>seata-account-service2003</module>
     </modules>
 
     <properties>
@@ -38,8 +41,11 @@
         <mapper.version>4.2.3</mapper.version>
         <fastjson2.version>2.0.40</fastjson2.version>
         <persistence-api.version>1.0.2</persistence-api.version>
-        <spring.boot.version>3.2.0</spring.boot.version>
-        <spring.cloud.version>2023.0.0</spring.cloud.version>
+        <!--仅为了整合openfeign + alibaba seata的案例，降低版本处理下-->
+        <spring.boot.version>3.1.7</spring.boot.version>
+        <spring.cloud.version>2022.0.4</spring.cloud.version>
+        <!--<spring.boot.version>3.2.0</spring.boot.version>
+        <spring.cloud.version>2023.0.0</spring.cloud.version>-->
         <spring.cloud.alibaba.version>2023.0.0.0-RC1</spring.cloud.alibaba.version> <!--fix sentinel + openfeign fallback 启动报错-->
         <micrometer-tracing.version>1.2.0</micrometer-tracing.version>
         <micrometer-observation.version>1.12.0</micrometer-observation.version>
