@@ -6,6 +6,7 @@ import com.ityj.cloud.entities.Order;
 import com.ityj.cloud.mapper.OrderMapper;
 import com.ityj.cloud.service.OrderService;
 import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
+    @GlobalTransactional(name = "zzyy-create-order", rollbackFor = {Exception.class})  //默认AT 自动事务
     @Override
     public void create(Order order) {
 

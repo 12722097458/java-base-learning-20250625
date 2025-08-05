@@ -26,7 +26,7 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("AccountServiceImpl update failed - no data is updated!");
         }
 
-        //myTimeOut();
+        myTimeOut();
         //int age = 10/0;
         log.info("------->account-service中扣减账户余额结束");
     }
