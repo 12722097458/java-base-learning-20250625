@@ -15,7 +15,7 @@ public class KafkaTest {
 
     @Test
     public void testOneRecord() {
-        CompletableFuture future = kafkaTemplate.send("test-topic", 1,"key", "vvv"  + System.currentTimeMillis());
+        CompletableFuture future = kafkaTemplate.send("cloud-topic", "key" + System.currentTimeMillis(), "vvv"  + System.currentTimeMillis());
 
         future.join();
         System.out.println("send complete!");
@@ -25,7 +25,7 @@ public class KafkaTest {
     public void testProducer() {
         CompletableFuture[] futures = new CompletableFuture[10000];
         for (int i = 0; i < 10000; i++) {
-            futures[i] = kafkaTemplate.send("test-topic", "kkk" + i, "vvv"  + i);
+            futures[i] = kafkaTemplate.send("cloud-topic", "kkk" + i, "vvv"  + i);
         }
         CompletableFuture.allOf(futures).join();
         System.out.println("send complete!");
