@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ityj.interview.advance.concurrent.thread.redislock.mapper.ProductMapper">
+
+    <select id="getBalance" resultType="int">
+        select balance from product where id = #{productId}
+    </select>
+
+    <update id="updateBalance">
+        update product set balance = #{newBalance} where id = #{productId}
+    </update>
+
+</mapper>
