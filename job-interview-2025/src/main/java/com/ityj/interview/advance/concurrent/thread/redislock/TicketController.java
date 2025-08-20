@@ -32,6 +32,7 @@ public class TicketController {
     public synchronized String sell(@PathVariable("productId") int productId) throws InterruptedException {
 
         RLock lock = redisson.getLock(REDIS_TEST_LOCK);
+        //        RLock redLock = redisson.getRedLock(lock);  在 (N/2 + 1) 个独立的 Redis 主节点上获取锁，才算成功，用以容忍少数节点故障
         lock.lock();
         TimeUnit.MINUTES.sleep(3);
         try {
