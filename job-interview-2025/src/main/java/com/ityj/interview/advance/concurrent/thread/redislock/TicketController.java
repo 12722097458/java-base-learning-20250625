@@ -15,7 +15,7 @@ public class TicketController {
     private ProductService productService;
 
     @RequestMapping("/sell/{productId}")
-    public String sell(@PathVariable("productId") int productId) {
+    public synchronized String sell(@PathVariable("productId") int productId) {
         int balance = productService.getBalance(productId);
         if (balance > 0) {
             int result = productService.updateBalance(productId, balance - 1);
