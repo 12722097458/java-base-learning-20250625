@@ -16,3 +16,8 @@ mybatis:
 
 server:
   port: 8080
+
+logging:
+  level:
+    com.ityj.interview.advance.concurrent.thread.redislock.TicketController: DEBUG
+    org.redisson: info # 设置为DEBUG可以看到更多Redisson内部日志
