@@ -13,7 +13,7 @@ public class TCPTest {
 
     @Test
     public void client() throws IOException {
-        Socket socket = new Socket("192.168.110.236", 8088);
+        Socket socket = new Socket("127.0.0.1", 8088);
         OutputStream outputStream = socket.getOutputStream();
         outputStream.write("TCPTest.client.......".getBytes());
         outputStream.close();

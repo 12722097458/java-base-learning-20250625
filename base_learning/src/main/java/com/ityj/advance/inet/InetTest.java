@@ -9,7 +9,7 @@ public class InetTest {
 
     @Test
     public void testInet() throws UnknownHostException {
-        InetAddress inetAddress = InetAddress.getByName("192.168.110.236");
+        InetAddress inetAddress = InetAddress.getByName("127.0.0.1");
         System.out.println("inetAddress = " + inetAddress);
 
         InetAddress inetAddress2 = InetAddress.getByName("www.mi.com");

@@ -43,7 +43,7 @@ public class ListTest {
      */
     @Test
     public void arrayListTest(){
-        List<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("1");
         list.add("2");
         list.add("3");
@@ -90,7 +90,7 @@ public class ListTest {
      */
     @Test
     public void linkedListTest() {
-        List list = new LinkedList();
+        LinkedList list = new LinkedList();
         list.add("1");
         list.add("2");
     }
@@ -103,7 +103,7 @@ public class ListTest {
      */
     @Test
     public void vectorTest() {
-        List list = new Vector();
+        Vector list = new Vector();
         list.add(1);
     }
 }

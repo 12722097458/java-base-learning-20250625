@@ -25,5 +25,9 @@ public class A001_NumberTest {
         int res2 = 12 % -5;    // 2
         int res3 = -12 % 5;    // -2
         int res4 = -12 % -5;   // -2
+
+        int aa = (int)  -3.3;  // -3
+        int bb = (int)  3.3;  // 3
+
     }
 }
