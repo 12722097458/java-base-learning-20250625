@@ -1,6 +1,8 @@
 package com.ityj.springboot.controller;
 
+import com.ityj.springboot.aop.service.Calculator;
 import com.ityj.springboot.entity.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,4 +29,16 @@ public class HelloController {
         student.setBirthday(new Date(System.currentTimeMillis()));
         return student;
     }
+
+    @Autowired
+    private Calculator calculator;
+
+
+    @GetMapping("/calculator")
+    public int calculator() {
+        System.out.println("calculator ....");
+        return calculator.add(1, 2);
+    }
+
+
 }
