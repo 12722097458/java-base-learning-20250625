@@ -4,6 +4,7 @@ import com.ityj.spring.annotation.controller.UserController;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 public class AnnotationTest {
 

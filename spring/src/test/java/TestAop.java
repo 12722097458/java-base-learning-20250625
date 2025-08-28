@@ -9,7 +9,7 @@ public class TestAop {
     private static final Logger log = LoggerFactory.getLogger(TestAop.class);
 
     @Test
-    public void testAop_anno() {
+    public void testAop_anno() {  //@After("pt()")  不生效的话用一个controller， 直接调用就好了
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean-aop.xml");
         Calculator calculator = context.getBean("calculatorImpl", Calculator.class);
         int add = calculator.add(1, 2);

@@ -11,7 +11,7 @@ public class LogAspect {
 
 
 
-    @Around(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
+    //@Around(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
 
         Object proceed = null;
@@ -29,12 +29,14 @@ public class LogAspect {
     }
 
 
-    @Before(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
+    //@Before(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
+    @Before("pt()")   // testcase中不生效的话，自己web测试就行
     public void before(JoinPoint joinPoint) {
         System.out.println("@Before前置通知...");
     }
 
-    @After(value = "pointcut()")
+    @After(value = "pt()")
+    //@After(value = "execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
     public void after(JoinPoint joinPoint) {
         System.out.println("@After后置通知...");
     }
@@ -50,7 +52,7 @@ public class LogAspect {
         System.out.println("@AfterThrowing 异常通知..." + ex);
     }
 
-    @Pointcut("execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(..))")
-    public void pointcut(){}
+    @Pointcut("execution (public int com.ityj.spring.aop.service.impl.CalculatorImpl.*(int, int))")
+    public void pt(){}
 
 }
