@@ -39,6 +39,7 @@ public class MessageConverterController {
     @ResponseBody
     public User testResponseBody() {
         System.out.println("testResponseBody...");
+//        int a = 1/0;
         User user = new User();
         user.setUsername("Jack");
         user.setHobby(List.of("A", "B"));
