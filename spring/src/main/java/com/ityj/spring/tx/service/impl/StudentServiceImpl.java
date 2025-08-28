@@ -15,7 +15,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentDao studentDao;
 
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)  // 开一个新车 REQUIRES_NEW
     @Override
     public int addAndUpdate(Student student) {
         studentDao.add(student);
@@ -27,4 +27,5 @@ public class StudentServiceImpl implements StudentService {
         int update = studentDao.update(student);
         return update;
     }
+
 }

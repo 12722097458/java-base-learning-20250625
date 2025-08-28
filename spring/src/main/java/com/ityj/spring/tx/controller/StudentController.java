@@ -3,6 +3,7 @@ package com.ityj.spring.tx.controller;
 import com.ityj.spring.tx.entity.Student;
 import com.ityj.spring.tx.service.StudentService;
 import com.ityj.spring.tx.service.impl.Service2;
+import com.ityj.spring.tx.service.impl.StudentService3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -18,9 +19,21 @@ public class StudentController {
     @Autowired
     private Service2 service2;
 
+    @Autowired
+    private StudentService3 studentService3;
+
+
+    public void studentService3() throws Exception {
+        Student student = new Student();
+        student.setName("second");
+        student.setAge(33);
+        student.setGender("unknown");
+        studentService3.addAndUpdate(student);
+    }
+
     public void addAndUpdate() {
         Student student = new Student();
-        student.setName("first");
+        student.setName("second");
         student.setAge(23);
         student.setGender("unknown");
         studentService.addAndUpdate(student);

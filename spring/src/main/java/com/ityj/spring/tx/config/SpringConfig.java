@@ -33,12 +33,12 @@ public class SpringConfig {
         return jdbcTemplate;
     }
 
-    @Bean
+    /*@Bean
     public DataSourceTransactionManager getDataSourceTransactionManager(DataSource dataSource) {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
         dataSourceTransactionManager.setDataSource(dataSource);
         return dataSourceTransactionManager;
-    }
+    }*/
 
 
 }
