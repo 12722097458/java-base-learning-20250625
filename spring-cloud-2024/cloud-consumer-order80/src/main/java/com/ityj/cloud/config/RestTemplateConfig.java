@@ -12,10 +12,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.web.client.RestTemplate;
 
-@Configuration
+
+//切换负载均衡模式  -  随机
+/*@Configuration
 @LoadBalancerClient(
         //下面的value值大小写一定要和consul里面的名字一样，必须一样
-        value = "cloud-payment-service",configuration = RestTemplateConfig.class)
+        value = "cloud-payment-service",configuration = RestTemplateConfig.class)*/
 public class RestTemplateConfig {
     @Bean
     @LoadBalanced //使用@LoadBalanced注解赋予RestTemplate负载均衡的能力

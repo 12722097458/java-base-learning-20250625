@@ -75,7 +75,7 @@ public class PaymentController {
 
     @Value("${consulConfig.value}")
     String consulConfigName;
-    @GetMapping(value = "/pay/consul/config")
+    @GetMapping(value = "/pay/consul/config")    // 需要在consul配置中心添加好配置才能启动成功，否则报错
     public ResultData<String> listConfig(){
         return ResultData.success("configName from cunsul: " + consulConfigName + ", port:" + serverPort);
     }

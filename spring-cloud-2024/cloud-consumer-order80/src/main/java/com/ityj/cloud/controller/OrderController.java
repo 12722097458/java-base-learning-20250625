@@ -30,11 +30,13 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_BASE_URL + "/pay/add", payDTO, ResultData.class);
     }
 
+    // http://localhost/consumer/pay/get/1
     @GetMapping("/consumer/pay/get/{id}")
     public ResultData getPayInfo(@PathVariable("id") int id) {
         return restTemplate.getForObject(PAYMENT_BASE_URL + "/pay/get/" + id, ResultData.class);
     }
 
+    // http://localhost/consumer/pay/info  可以测试负载均衡
     @GetMapping(value = "/consumer/pay/info")
     public ResultData<String> info(){
         return restTemplate.getForObject(PAYMENT_BASE_URL + "/pay/info", ResultData.class);
@@ -42,6 +44,8 @@ public class OrderController {
 
     @Autowired
     private DiscoveryClient discoveryClient;
+
+    // http://localhost/consumer/discovery
     @GetMapping("/consumer/discovery")
     public String discovery() {
         List<String> services = discoveryClient.getServices();
