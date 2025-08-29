@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
+@RefreshScope  // 刷新consul 配置，写在具体的bean上。  spring.cloud.consul.config.watch.wait-time好像没啥用
 public class PaymentController {
 
     @Autowired
@@ -78,6 +80,12 @@ public class PaymentController {
     @GetMapping(value = "/pay/consul/config")    // 需要在consul配置中心添加好配置才能启动成功，否则报错
     public ResultData<String> listConfig(){
         return ResultData.success("configName from cunsul: " + consulConfigName + ", port:" + serverPort);
+    }
+
+    @GetMapping(value = "/pay/consul/config2")
+    // 作为变量，不需要spring.cloud.consul.config.watch.wait-time， 也不需要@RefreshScope
+    public ResultData<String> listConfig2(@Value("${consulConfig.value}") String consulConfigName2){
+        return ResultData.success("configName from cunsul: " + consulConfigName2 + ", port:" + serverPort);
     }
 
     @GetMapping(value = "/pay/info")

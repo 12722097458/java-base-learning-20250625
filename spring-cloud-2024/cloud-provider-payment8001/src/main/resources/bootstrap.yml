@@ -12,7 +12,7 @@ spring:
         profile-separator: '-' # default value is ","，we update '-'
         format: YAML
         watch:
-          wait-time: 1  # 1秒刷新1次 结合@RefreshScope使用
-# config/cloud-payment-service/data
+          wait-time: 55  # 1秒刷新1次 结合@RefreshScope使用
+# config/cloud-payment-service/data   data是文件，其他的是文件夹。  UI上yml格式不要用Tab进行对其，直接空格
 # config/cloud-payment-service-dev/data
 # config/cloud-payment-service-prod/data
