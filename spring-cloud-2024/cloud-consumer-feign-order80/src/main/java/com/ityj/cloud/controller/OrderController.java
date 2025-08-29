@@ -32,6 +32,7 @@ public class OrderController {
         return payFeignApi.queryAll();
     }
 
+    // http://localhost/feign/pay/info
     @GetMapping(value = "/feign/pay/info")
     public ResultData<String> info(){
         return payFeignApi.info();
