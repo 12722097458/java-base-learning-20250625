@@ -27,8 +27,9 @@ public class PayGateWayController
     private String serverPort;
 
     @GetMapping(value = "/pay/gateway/get/{id}")
-    public ResultData<Pay> getById(@PathVariable("id") Integer id)
+    public ResultData<Pay> getById(@PathVariable("id") Integer id, HttpServletRequest request)
     {
+        log.info("Input parameter gender : {}", request.getParameter("gender"));
         Pay pay = payService.queryById(id);
         return ResultData.success(pay);
     }
