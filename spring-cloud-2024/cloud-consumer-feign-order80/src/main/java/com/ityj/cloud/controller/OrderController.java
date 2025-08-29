@@ -40,7 +40,7 @@ public class OrderController {
 
     @GetMapping(value = "/feign/pay/ratelimit/{id}")
     @RateLimiter(name = "cloud-payment-service",fallbackMethod = "myRatelimitFallback")
-    public String myBulkhead(@PathVariable("id") Integer id) {
+    public String ratelimit(@PathVariable("id") Integer id) {
         return payFeignApi.myRatelimit(id);
     }
 
