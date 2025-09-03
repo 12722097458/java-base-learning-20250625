@@ -4,6 +4,7 @@ import com.ityj.cloud.response.ResultData;
 import com.ityj.cloud.service.StorageService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -20,7 +21,7 @@ public class StorageController {
      * 扣减库存
      */
     @RequestMapping("/storage/decrease")
-    public ResultData decrease(Long productId, Integer count) {
+    public ResultData decrease(@RequestParam("productId") Long productId, @RequestParam("count") Integer count) {
 
         storageService.decrease(productId, count);
         return ResultData.success("扣减库存成功!");
