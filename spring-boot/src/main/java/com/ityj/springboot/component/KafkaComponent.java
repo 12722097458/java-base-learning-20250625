@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class KafkaComponent {
 
-    @KafkaListener(id = "receive1", groupId = "haha", topics = {"test-topic"})
+    @KafkaListener(id = "receive1", groupId = "haha", topics = {"cloud-topic"})
     public void receive(ConsumerRecord consumerRecord) {
         Object key = consumerRecord.key();
         Object value = consumerRecord.value();
         log.info("receive  key :{}, value: {}", key, value);
     }
 
-    @KafkaListener(id = "receive2", groupId = "haha", topics = {"test-topic"})
+    @KafkaListener(id = "receive2", groupId = "haha", topics = {"cloud-topic"})
     public void receive2(ConsumerRecord consumerRecord) {
         Object key = consumerRecord.key();
         Object value = consumerRecord.value();
