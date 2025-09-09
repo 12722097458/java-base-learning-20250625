@@ -1,6 +1,7 @@
 package com.ityj.dubbo.controller;
 
 import com.ityj.dubbo.service.TicketService;
+import org.apache.dubbo.common.constants.ClusterRules;
 import org.apache.dubbo.common.constants.LoadbalanceRules;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-    @DubboReference(loadbalance = LoadbalanceRules.RANDOM)
+    @DubboReference(loadbalance = LoadbalanceRules.RANDOM,
+            cluster = ClusterRules.FAIL_OVER, retries = 2, timeout = 2000)
     private TicketService ticketService;
 
     // http://localhost:8888/ticket/7
