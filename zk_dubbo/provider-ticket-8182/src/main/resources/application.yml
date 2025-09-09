@@ -1,9 +1,9 @@
 dubbo:
   protocol:
-    port: 28181
+    port: 28182
   application:
     name: provider-ticket
-    qos-port: 22222
+    qos-port: 33333
     qos-enable: true
     qos-accept-foreign-ip: false
   registry:
@@ -11,4 +11,4 @@ dubbo:
   scan:
     base-packages: com.ityj.dubbo.service  # 可以用 @DubboComponentScan
 server:
-  port: 8181
+  port: 8182
