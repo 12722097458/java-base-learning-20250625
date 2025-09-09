@@ -15,6 +15,7 @@ public class Application {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ioc = SpringApplication.run(Application.class, args);
+        System.out.println("项目启动完毕了 。。。.Application.main().... IOC准备完毕");
         for (String beanDefinitionName : ioc.getBeanDefinitionNames()) {
 
             System.out.println("beanDefinitionName = " + beanDefinitionName);
