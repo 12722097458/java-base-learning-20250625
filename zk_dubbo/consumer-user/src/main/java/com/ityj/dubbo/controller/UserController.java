@@ -1,6 +1,7 @@
 package com.ityj.dubbo.controller;
 
 import com.ityj.dubbo.service.TicketService;
+import com.ityj.dubbo.service.fallback.TicketServiceFallback;
 import org.apache.dubbo.common.constants.ClusterRules;
 import org.apache.dubbo.common.constants.LoadbalanceRules;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @DubboReference(loadbalance = LoadbalanceRules.RANDOM,
-            cluster = ClusterRules.FAIL_OVER, retries = 2, timeout = 2000)
+            cluster = ClusterRules.FAIL_OVER, retries = 2, timeout = 2000,
+                mock = "com.ityj.dubbo.service.fallback.TicketServiceFallback")
+//            mock = "fail: return error")  失败后返回error字符串
     private TicketService ticketService;
 
     // http://localhost:8888/ticket/7
