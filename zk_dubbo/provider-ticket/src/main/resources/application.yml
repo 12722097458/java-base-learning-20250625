@@ -1,0 +1,10 @@
+dubbo:
+  application:
+    name: provider-ticket
+  registry:
+    address: zookeeper://192.168.137.110:2181
+  scan:
+    base-packages: com.ityj.dubbo.service  # 可以用 @DubboComponentScan
+
+server:
+  port: 8181
