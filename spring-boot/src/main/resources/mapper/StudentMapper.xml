@@ -9,4 +9,7 @@
         select * from student where name = #{name}
     </select>
 
+    <select id="queryByDymaticTableName" resultType="com.ityj.springboot.entity.Student">
+        select * from t_stu where name = #{name}
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 package com.ityj.springboot.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
 import lombok.ToString;
@@ -11,6 +12,7 @@ import java.util.Date;
 @Slf4j
 @Data
 @ToString
+@TableName("t_stu")
 public class Student {
     private String name;
     private int age;
