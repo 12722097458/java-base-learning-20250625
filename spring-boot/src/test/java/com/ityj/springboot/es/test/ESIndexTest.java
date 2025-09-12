@@ -1,4 +1,4 @@
-package com.ityj.springboot.service;
+package com.ityj.springboot.es.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
@@ -13,11 +13,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 
-import static com.ityj.springboot.util.HotelConstants.MAPPING_TEMPLATE;
+import static com.ityj.springboot.es.util.HotelConstants.MAPPING_TEMPLATE;
 
 @Slf4j
 @SpringBootTest
-public class ESTest {
+public class ESIndexTest {
 
     @Autowired
     private RestHighLevelClient restHighLevelClient;

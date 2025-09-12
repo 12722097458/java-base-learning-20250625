@@ -1,4 +1,4 @@
-package com.ityj.springboot.util;
+package com.ityj.springboot.es.util;
 
 public class HotelConstants {
     public static final String MAPPING_TEMPLATE = "{\n" +
