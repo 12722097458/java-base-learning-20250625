@@ -29,5 +29,11 @@ public class A001_NumberTest {
         int aa = (int)  -3.3;  // -3
         int bb = (int)  3.3;  // 3
 
+
+        float ff = 1.11111111111111111111111F;
+        double dd = 1.11111111111111111111111D;
+        System.out.println("ff = " + ff);   // 1.1111112
+        System.out.println("dd = " + dd);   // 1.1111111111111112
+
     }
 }
