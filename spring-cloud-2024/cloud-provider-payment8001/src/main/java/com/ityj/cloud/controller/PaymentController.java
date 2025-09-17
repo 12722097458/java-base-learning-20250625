@@ -51,6 +51,9 @@ public class PaymentController {
         ThreadUtil.sleep(62, TimeUnit.SECONDS);
 
         Pay pay = payService.queryById(id);
+        if (pay == null) {
+            throw new RuntimeException("订单不存在！" + id);
+        }
         PayDTO payDTO = new PayDTO();
         BeanUtils.copyProperties(pay, payDTO);
         log.info("payDTO is : {}", payDTO);

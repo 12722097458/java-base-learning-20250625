@@ -12,7 +12,7 @@ public class StringTest {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         // public final class String
-        String str = "abc";   //  常量池
+        String str = "abc";   //  字符串常量池  --》 heap
         String str2 = "abc";   //  常量池
         String m = "a";   //  常量池
         String m2 = "bc";   //  常量池
@@ -42,7 +42,7 @@ public class StringTest {
         System.out.println("bytes = " + Arrays.toString(bytes));
         byte[] gbkBytes = stt.getBytes("gbk");  // GBK  一个中文2字节
         System.out.println("gbkBytes = " + Arrays.toString(gbkBytes));
-        
+
         // 解码
         // 乱码
         String mismatch = new String(gbkBytes, StandardCharsets.UTF_8);
@@ -50,10 +50,11 @@ public class StringTest {
         // 正确
         String correct = new String(gbkBytes, "GBK");
         System.out.println("correct = " + correct);
-        
-        
-        
-        
-        
+
+
+        StringBuilder sb = new StringBuilder();  // super(16);  扩容oldLength * 2 + 2
+
+
+
     }
 }

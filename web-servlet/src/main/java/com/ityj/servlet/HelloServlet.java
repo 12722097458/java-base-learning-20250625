@@ -18,7 +18,7 @@ public class HelloServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("into HelloServlet.service()...");
 
-        getServletContext().setAttribute("k", "v"); // test Listener
+        getServletContext().setAttribute("k", "v"); // test Listener--MyContextListener
 
         ServletConfig servletConfig = this.getServletConfig();
         String k2 = servletConfig.getInitParameter("k2");

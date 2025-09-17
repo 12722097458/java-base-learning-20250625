@@ -22,7 +22,8 @@ public class ListTest {
 
         int num = 3;
 
-        int num2 = num >> 1;
+        int num2 = num >> 1;  // 右移1位 除以2
+        System.out.println(1 ^ 22 ^ 1);  // 异或，相同为0false, 不同为true
 
         System.out.println("num2 = " + num2);
     }
@@ -93,6 +94,10 @@ public class ListTest {
         LinkedList list = new LinkedList();
         list.add("1");
         list.add("2");
+        Object o1 = list.removeFirst();
+        Object o = list.removeLast();
+        System.out.println("o1 = " + o1);
+        System.out.println("o = " + o);
     }
 
 

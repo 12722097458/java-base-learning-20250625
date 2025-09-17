@@ -62,7 +62,7 @@ public class PrepareStatementTest {
             ps.setBlob(5, is);
             int count = ps.executeUpdate();
 
-            int a = 1 / 0;
+            //int a = 1 / 0;
 
             connection.commit(); // 2.1 提交
 

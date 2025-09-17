@@ -25,8 +25,8 @@ public class UserBeanTest {
 //        User user2 = context.getBean(User.class);
         // 3 名字 + 类型
         User user3 = context.getBean("user", User.class);
-        log.info("user1 = {}", user1);
-        log.info("user3 = {}", user3);
+        log.info("user1 = {}", user1.hashCode());
+        log.info("user3 = {}", user3.hashCode());
     }
 
     @Test

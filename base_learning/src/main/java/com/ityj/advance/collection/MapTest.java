@@ -64,7 +64,7 @@ public class MapTest {
 
 
     @Test
-    public void testHashTable2(){
+    public void testConcurrentHashMap(){
         ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
         map.put("A","1");
     }
