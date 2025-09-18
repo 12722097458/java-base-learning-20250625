@@ -38,6 +38,12 @@ public class OrderController {
         return payFeignApi.info();
     }
 
+    // http://localhost:80/feign/pay/consul/config
+    @GetMapping(value = "/feign/pay/consul/config")
+    public ResultData<String> listConfig(){
+        return payFeignApi.listConfig();
+    }
+
     @GetMapping(value = "/feign/pay/ratelimit/{id}")
     @RateLimiter(name = "cloud-payment-service",fallbackMethod = "myRatelimitFallback")
     public String ratelimit(@PathVariable("id") Integer id) {

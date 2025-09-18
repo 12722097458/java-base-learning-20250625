@@ -27,6 +27,10 @@ public interface PayFeignApi {
     @GetMapping(value = "/pay/info")
     ResultData<String> info();
 
+
+    @GetMapping(value = "/pay/consul/config") // 测试consul配置中心动态刷新
+    ResultData<String> listConfig();
+
     /**
      * Resilience4j CircuitBreaker 的例子
      * @param id
