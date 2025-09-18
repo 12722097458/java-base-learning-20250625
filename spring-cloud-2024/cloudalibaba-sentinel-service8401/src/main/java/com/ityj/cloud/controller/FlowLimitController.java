@@ -11,12 +11,14 @@ import java.util.concurrent.TimeUnit;
 public class FlowLimitController {
 
     @GetMapping("/testA")
-    public String testA() {
+    public String testA() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(500);
         return "------testA";
     }
 
     @GetMapping("/testB")
-    public String testB() {
+    public String testB() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(500);
         return "------testB";
     }
 
@@ -40,8 +42,9 @@ public class FlowLimitController {
     }
 
     @GetMapping("/testE")
-    public String testE() {
+    public String testE() throws InterruptedException {
         System.out.println(System.currentTimeMillis() + "      testE,排队等待");
+        TimeUnit.MILLISECONDS.sleep(1500);
         return "------testE";
     }
 
@@ -75,7 +78,7 @@ public class FlowLimitController {
 
 
 }
- 
 
- 
+
+
 
