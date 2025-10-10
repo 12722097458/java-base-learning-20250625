@@ -8,6 +8,7 @@
   <name>spring-ai-alibaba-parent Maven Webapp</name>
   <modules>
     <module>saa-01helloworld</module>
+      <module>saa-03chatclient</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
