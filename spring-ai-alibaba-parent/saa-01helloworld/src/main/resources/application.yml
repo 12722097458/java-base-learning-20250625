@@ -14,3 +14,5 @@ spring:
         options:
 #          model: deepseek-v3.2-exp # 如未配置，默认是qwen-plus com.alibaba.cloud.ai.autoconfigure.dashscope.DashScopeChatProperties.getOptions
           model: qwen3-max
+  application:
+    name: saa-01helloworld
