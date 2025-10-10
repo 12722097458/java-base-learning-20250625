@@ -7,8 +7,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>saa-01helloworld</artifactId>
-    <name>saa-01helloworld learning</name>
+    <artifactId>saa-03chatclient</artifactId>
+    <name>saa-03chatclient learning</name>
 
     <dependencies>
         <dependency>
@@ -25,7 +25,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
