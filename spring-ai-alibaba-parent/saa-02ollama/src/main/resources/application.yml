@@ -1,0 +1,18 @@
+server:
+  port: 8082
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+spring:
+  ai:
+    dashscope:
+      api-key: ${ALIYUN-BAILIAN-ACCESS-KEY}
+    ollama:
+      base-url: http://localhost:11434  # 注意这里的修改
+      chat:
+        options:
+          model: qwen3:0.6b
+  application:
+    name: sa-02ollama
