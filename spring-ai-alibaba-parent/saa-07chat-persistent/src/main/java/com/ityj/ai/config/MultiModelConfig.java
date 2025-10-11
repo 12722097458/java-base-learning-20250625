@@ -3,7 +3,10 @@ package com.ityj.ai.config;
 import com.alibaba.cloud.ai.dashscope.api.DashScopeApi;
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatModel;
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatOptions;
+import com.alibaba.cloud.ai.memory.redis.RedisChatMemoryRepository;
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
+import org.springframework.ai.chat.memory.MessageWindowChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,13 +44,26 @@ public class MultiModelConfig {
     }
 
     @Bean("qwenChatClient")
-    public ChatClient getQwenChatClient(@Autowired @Qualifier(value = "qwenChatModel")ChatModel qwenChatModel) {
-        return ChatClient.builder(qwenChatModel).build();
+    public ChatClient getQwenChatClient(@Autowired @Qualifier(value = "qwenChatModel")ChatModel qwenChatModel,
+                                        RedisChatMemoryRepository redisChatMemoryRepository) {
+
+        MessageWindowChatMemory messageWindowChatMemory = MessageWindowChatMemory.builder()
+                .maxMessages(10).chatMemoryRepository(redisChatMemoryRepository).build();
+        return ChatClient.builder(qwenChatModel)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(messageWindowChatMemory).build())
+                .build();
     }
 
     @Bean("deepseekChatClient")
-    public ChatClient getDeepSeekChatClient(@Autowired @Qualifier(value = "deepseekChatModel") ChatModel deepseekChatModel) {
-        return ChatClient.builder(deepseekChatModel).build();
+    public ChatClient getDeepSeekChatClient(@Autowired @Qualifier(value = "deepseekChatModel") ChatModel deepseekChatModel,
+                                            RedisChatMemoryRepository redisChatMemoryRepository) {
+        MessageWindowChatMemory messageWindowChatMemory = MessageWindowChatMemory.builder()
+                .maxMessages(10) // 保留最近10条聊天记录
+                .chatMemoryRepository(redisChatMemoryRepository).build();
+        return ChatClient.builder(deepseekChatModel)
+                .defaultAdvisors(MessageChatMemoryAdvisor.builder(messageWindowChatMemory).build())
+                .build();
     }
+
 
 }

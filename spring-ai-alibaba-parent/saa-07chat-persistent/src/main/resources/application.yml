@@ -15,3 +15,8 @@ spring:
           model: qwen3-max
   application:
     name: saa-07chat-persistent
+
+  data:
+    redis:
+      host: 192.168.137.110
+      port: 6379
