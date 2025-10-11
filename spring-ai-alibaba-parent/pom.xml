@@ -13,6 +13,7 @@
     <module>saa-04sse-StreamingOutput</module>
       <module>saa-05prompt</module>
       <module>saa-06structuredoutput</module>
+      <module>saa-07chat-persistent</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
