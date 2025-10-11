@@ -10,6 +10,7 @@
     <module>saa-01helloworld</module>
       <module>saa-03chatclient</module>
     <module>saa-02ollama</module>
+    <module>saa-04sse-StreamingOutput</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
