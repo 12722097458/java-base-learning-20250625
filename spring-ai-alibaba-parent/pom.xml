@@ -12,6 +12,7 @@
     <module>saa-02ollama</module>
     <module>saa-04sse-StreamingOutput</module>
       <module>saa-05prompt</module>
+      <module>saa-06structuredoutput</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
