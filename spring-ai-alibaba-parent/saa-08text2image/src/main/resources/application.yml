@@ -1,0 +1,17 @@
+server:
+  port: 8088
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+spring:
+  ai:
+    dashscope:
+      api-key: ${ALIYUN-BAILIAN-ACCESS-KEY}
+#      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1 #org.springframework.ai.retry.NonTransientAiException: HTTP 404 - No response body available
+      chat:
+        options:
+          model: wanx2.0-t2i-turbo
+  application:
+    name: saa-08text2image
