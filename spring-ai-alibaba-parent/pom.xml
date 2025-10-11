@@ -15,6 +15,7 @@
       <module>saa-06structuredoutput</module>
       <module>saa-07chat-persistent</module>
       <module>saa-08text2image</module>
+      <module>saa-09text2voice</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
