@@ -1,56 +1,69 @@
 package com.ityj.ai.controller;
 
-import com.alibaba.cloud.ai.dashscope.audio.DashScopeSpeechSynthesisOptions;
-import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisModel;
-import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisPrompt;
-import com.alibaba.cloud.ai.dashscope.audio.synthesis.SpeechSynthesisResponse;
+import com.alibaba.cloud.ai.dashscope.embedding.DashScopeEmbeddingOptions;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.ai.document.Document;
+import org.springframework.ai.embedding.EmbeddingModel;
+import org.springframework.ai.embedding.EmbeddingRequest;
+import org.springframework.ai.embedding.EmbeddingResponse;
+import org.springframework.ai.vectorstore.SearchRequest;
+import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileOutputStream;
-import java.nio.ByteBuffer;
-import java.util.UUID;
-
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
+@Slf4j
 public class Embed2VectorController {
     @Resource
-    private SpeechSynthesisModel speechSynthesisModel;
+    private EmbeddingModel embeddingModel;
 
-    // voice model
-    public static final String BAILIAN_VOICE_MODEL = "cosyvoice-v2";
-    // voice timber 音色列表：https://help.aliyun.com/zh/model-studio/cosyvoice-java-sdk#722dd7ca66a6x
-    public static final String BAILIAN_VOICE_TIMBER = "longyingcui";//龙应催
+    @Resource
+    private VectorStore vectorStore;
 
     /**
-     * http://localhost:8089/t2v/voice
+     * 文本向量化
+     * http://localhost:8010/text2embed?msg=射雕英雄传
      *
+     * @param msg
+     * @return
      */
-    @GetMapping("/t2v/voice")
-    public String voice(@RequestParam(name = "msg", defaultValue = "温馨提醒，支付宝到账100元请注意查收") String msg) {
-        String filePath = "d:\\" + UUID.randomUUID() + ".mp3";
+    @GetMapping("/text2embed")
+    public EmbeddingResponse text2Embed(@RequestParam(name = "msg") String msg) {
+        EmbeddingResponse embeddingResponse = embeddingModel.call(new EmbeddingRequest(List.of(msg), null));
 
-        //1 语音参数设置
-        DashScopeSpeechSynthesisOptions options = DashScopeSpeechSynthesisOptions.builder()
-                .model(BAILIAN_VOICE_MODEL)
-                .voice(BAILIAN_VOICE_TIMBER)
+        System.out.println(Arrays.toString(embeddingResponse.getResult().getOutput()));
+
+        return embeddingResponse;
+    }
+
+    @GetMapping("/embed2vector/add")
+    public void add() {
+        List<Document> documents = List.of(
+                new Document("i study LLM"),
+                new Document("i love java")
+        );
+
+        vectorStore.add(documents);
+    }
+
+    @GetMapping("/embed2vector/get")
+    public List getAll(@RequestParam(name = "msg") String msg) {
+        SearchRequest searchRequest = SearchRequest.builder()
+                .query(msg)
+                .topK(2)
                 .build();
 
-        //2 调用大模型语音生成对象
-        SpeechSynthesisResponse response = speechSynthesisModel.call(new SpeechSynthesisPrompt(msg, options));
+        List<Document> list = vectorStore.similaritySearch(searchRequest);
 
-        //3 字节流语音转换
-        ByteBuffer byteBuffer = response.getResult().getOutput().getAudio();
+        System.out.println(list);
 
-        //4 文件生成
-        try (FileOutputStream fileOutputStream = new FileOutputStream(filePath)) {
-            fileOutputStream.write(byteBuffer.array());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        //5 生成路径OK
-        return filePath;
+        return list;
     }
 }
+
+

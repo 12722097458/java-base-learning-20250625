@@ -1,5 +1,5 @@
 server:
-  port: 8089
+  port: 8010
   servlet:
     encoding:
       charset: UTF-8
@@ -9,9 +9,23 @@ spring:
   ai:
     dashscope:
       api-key: ${ALIYUN-BAILIAN-ACCESS-KEY}
-#      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1 #org.springframework.ai.retry.NonTransientAiException: HTTP 404 - No response body available
+#      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      embedding:
+        options:
+          model: text-embedding-v1
       chat:
         options:
-          model: wanx2.0-t2i-turbo
+          model: qwen3-max
+    vectorstore:
+      redis:
+        initialize-schema: true
+        index-name: my-default-index
+        prefix: my-custom-prefix
+
+  data:
+    redis:
+      host: 192.168.137.110
+      port: 6379
   application:
-    name: saa-09text2voice
+    name: saa-10embed2vector
+
