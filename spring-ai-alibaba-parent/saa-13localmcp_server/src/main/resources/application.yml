@@ -1,0 +1,17 @@
+server:
+  port: 8013
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+spring:
+  ai:
+    mcp:
+      server:
+        type: async
+        name: my-weather-mcp-server
+        version: 1.0.0
+
+  application:
+    name: saa-13localmcp_server
