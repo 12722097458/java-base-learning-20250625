@@ -21,6 +21,7 @@
       <module>saa-12toolcalling</module>
       <module>saa-13localmcp_server</module>
       <module>saa-14-localmcp-client</module>
+    <module>saa-15-mcp-baidumap</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
