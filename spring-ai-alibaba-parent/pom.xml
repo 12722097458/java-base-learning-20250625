@@ -17,6 +17,7 @@
       <module>saa-08text2image</module>
       <module>saa-09text2voice</module>
       <module>saa-10embed2vector</module>
+      <module>saa-11rag4aiops</module>
   </modules>
   <modelVersion>4.0.0</modelVersion>
 
